@@ -55,6 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="IngredientTag.cs" />
+    <Compile Include="IngredientType.cs" />
+    <Compile Include="Recipe.cs" />
+    <Compile Include="Nutrition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
