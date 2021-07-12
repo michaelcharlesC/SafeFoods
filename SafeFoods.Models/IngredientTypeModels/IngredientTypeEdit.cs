@@ -5,19 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SafeFoods.Data
+namespace SafeFoods.Models.IngredientTypeModels
 {
-    public class IngredientType
+    public class IngredientTypeEdit
     {
-        [Key]
+        [Required]
+        [Display(Name = "Ingredient Type ID")]
         public int IngredientTypeId { get; set; }
         [Required]
         public string Name { get; set; }
-        public virtual ICollection<IngredientTag> IngredientTagList { get; set; }
-
-        public IngredientType()
-        {
-            IngredientTagList = new HashSet<IngredientTag>();
-        }
     }
 }

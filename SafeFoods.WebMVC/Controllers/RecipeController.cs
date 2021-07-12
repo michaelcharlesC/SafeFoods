@@ -16,5 +16,10 @@ namespace SafeFoods.WebMVC.Controllers
             var model = new RecipeListItem[0];
             return View(model);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }

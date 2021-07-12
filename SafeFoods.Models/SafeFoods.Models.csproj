@@ -54,16 +54,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IngredientTagModels\IngredientTagCreate.cs" />
+    <Compile Include="IngredientTagModels\IngredientTagDetail.cs" />
+    <Compile Include="IngredientTagModels\IngredientTagEdit.cs" />
     <Compile Include="IngredientTagModels\IngredientTagListItem.cs" />
+    <Compile Include="IngredientTypeModels\IngredientTypeCreate.cs" />
+    <Compile Include="IngredientTypeModels\IngredientTypeDetail.cs" />
+    <Compile Include="IngredientTypeModels\IngredientTypeEdit.cs" />
     <Compile Include="IngredientTypeModels\IngredientTypeListItem.cs" />
+    <Compile Include="NutritionModels\NutritionCreate.cs" />
+    <Compile Include="NutritionModels\NutritionDetail.cs" />
+    <Compile Include="NutritionModels\NutritionEdit.cs" />
     <Compile Include="NutritionModels\NutritionListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecipeModels\RecipeCreate.cs" />
+    <Compile Include="RecipeModels\RecipeDetail.cs" />
+    <Compile Include="RecipeModels\RecipeEdit.cs" />
     <Compile Include="RecipeModels\RecipeListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SafeFoods.Data\SafeFoods.Data.csproj">
+      <Project>{08A0F68D-473A-43DC-8454-91C9091676FF}</Project>
+      <Name>SafeFoods.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
