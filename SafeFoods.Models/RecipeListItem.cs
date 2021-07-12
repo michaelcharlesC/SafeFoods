@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SafeFoods.Models
 {
-    class RecipeListItem
+    public xclass RecipeListItem
     {
     }
 }
