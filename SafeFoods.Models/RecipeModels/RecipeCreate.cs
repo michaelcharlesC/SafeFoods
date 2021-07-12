@@ -26,7 +26,6 @@ namespace SafeFoods.Models.RecipeModels
         [Display(Name = "Total Coocking Time")]
         [Required]
         public int CookTime { get; set; }
-        [Required]
-        [Display(Name = "Created On")]
+
     }
 }

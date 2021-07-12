@@ -30,7 +30,7 @@ namespace SafeFoods.Data
         [Display(Name = "Preparation Time in minutes")]
         [Required]
         public TimeSpan PrepTime { get; set; } 
-        [Display(Name = "Total Coocking Time")]
+        [Display(Name = "Coocking Time")]
         [Required]
         public int CookTime { get; set; }
         [Required]
