@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SafeFoods.Models.IngredientTagModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,8 @@ namespace SafeFoods.WebMVC.Controllers
         // GET: IngredientType
         public ActionResult Index()
         {
-            return View();
+            var model = new IngredientTypeListItem[0];
+            return View(model);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SafeFoods.Models.NutritionModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,8 @@ namespace SafeFoods.WebMVC.Controllers
         // GET: Nutrition
         public ActionResult Index()
         {
-            return View();
+            var model = new NutritionListItem[0];
+            return View(model);
         }
     }
 }
