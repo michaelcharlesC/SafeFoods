@@ -15,11 +15,15 @@ namespace SafeFoods.Data
         public virtual Recipe Recipe { get; set; }
         [Required]
         public Guid OwnerId { get; set; }
+        [Display(Name = "Grams of Carbohydrates")]
         public int? Carbohydrates { get; set; }
+        [Display(Name = "Grams of Calories")]
         public int? Calories { get; set; }
         [Display(Name = "Grams of Fat")]
         public int? FatGram { get; set; }
+        [Display(Name = "Grams of Protein")]
         public int? Protein { get; set; }
+        [Display(Name = "Grams of Fiber")]
         public int? Fiber { get; set; }
     }
 }
