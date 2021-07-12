@@ -13,7 +13,7 @@ namespace SafeFoods.WebMVC.Controllers
         public ActionResult Index()
         {
             var model = new IngredientTagListItem[0];
-            return View();
+            return View(model);
         }
     }
 }
