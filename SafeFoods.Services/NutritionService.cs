@@ -12,6 +12,11 @@ namespace SafeFoods.Services
     {
         private readonly Guid _userId;
 
+        public NutritionService(Guid userId)
+        {
+            _userId = userId;
+        }
+
         public bool CreateNutrition(NutritionCreate model)
         {
             var entity = new Nutrition()

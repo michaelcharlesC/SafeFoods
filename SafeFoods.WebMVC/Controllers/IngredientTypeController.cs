@@ -1,5 +1,7 @@
-﻿using SafeFoods.Models.IngredientTagModels;
+﻿using Microsoft.AspNet.Identity;
+using SafeFoods.Models.IngredientTagModels;
 using SafeFoods.Models.IngredientTypeModels;
+using SafeFoods.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,11 +25,17 @@ namespace SafeFoods.WebMVC.Controllers
 
         public ActionResult Create(IngredientTypeCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new IngredientTypeService(userId);
+
+            service.CreateIngredientType(model);
+
+            return RedirectToAction("Index");
         }
     }
 }

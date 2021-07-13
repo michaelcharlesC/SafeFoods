@@ -38,7 +38,7 @@ namespace SafeFoods.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        public IEnumerable<RecipeListItem> GetIngredientTypes()
+        public IEnumerable<RecipeListItem> GetRecipes()
         {
             using (var ctx = new ApplicationDbContext())
             {

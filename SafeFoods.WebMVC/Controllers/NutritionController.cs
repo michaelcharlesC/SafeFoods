@@ -1,4 +1,6 @@
-﻿using SafeFoods.Models.NutritionModels;
+﻿using Microsoft.AspNet.Identity;
+using SafeFoods.Models.NutritionModels;
+using SafeFoods.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,11 +25,17 @@ namespace SafeFoods.WebMVC.Controllers
 
         public ActionResult Create(NutritionCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new NutritionService(userId);
+
+            service.CreateNutrition(model);
+
+            return RedirectToAction("Index");
         }
     }
 }

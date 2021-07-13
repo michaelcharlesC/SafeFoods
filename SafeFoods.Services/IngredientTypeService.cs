@@ -18,7 +18,7 @@ namespace SafeFoods.Services
             _userId = userId;
         }
 
-        public bool CreateRecipe(IngredientTypeCreate model)
+        public bool CreateIngredientType(IngredientTypeCreate model)
         {
             var entity = new IngredientType()
             {
