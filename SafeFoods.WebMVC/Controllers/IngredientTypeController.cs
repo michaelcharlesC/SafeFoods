@@ -15,5 +15,9 @@ namespace SafeFoods.WebMVC.Controllers
             var model = new IngredientTypeListItem[0];
             return View(model);
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }
