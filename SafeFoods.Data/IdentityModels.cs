@@ -32,7 +32,7 @@ namespace SafeFoods.Data
             return new ApplicationDbContext();
         }
 
-        public DbSet<Recipe> MealRecipes { get; set; }
+        public DbSet<Recipe> Recipes { get; set; }
         public DbSet<IngredientTag> IngredientTags { get; set; }
 
         public DbSet<Nutrition> Nutritions { get; set; }

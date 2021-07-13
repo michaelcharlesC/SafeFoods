@@ -1,4 +1,5 @@
 ﻿using SafeFoods.Models.IngredientTagModels;
+using SafeFoods.Models.IngredientTypeModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,15 @@ namespace SafeFoods.WebMVC.Controllers
         {
             return View();
         }
+
+        public ActionResult Create(IngredientTypeCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
+        }
     }
+}
 }

@@ -13,7 +13,7 @@ namespace SafeFoods.Models
         public int RecipeId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public int? Rating { get; set; }
+        //public int? Rating { get; set; }
         [Display(Name = "Created On")]
         public DateTimeOffset DateAdded { get; set; }
 

@@ -13,6 +13,7 @@ namespace SafeFoods.Data
         public int IngredientTypeId { get; set; }
         [Required]
         public string Name { get; set; }
+        public Guid OwnerId { get; set; }
         public virtual ICollection<IngredientTag> IngredientTagList { get; set; }
 
         public IngredientType()

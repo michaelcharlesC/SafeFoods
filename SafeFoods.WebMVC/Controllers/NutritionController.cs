@@ -20,5 +20,15 @@ namespace SafeFoods.WebMVC.Controllers
         {
             return View();
         }
+
+        public ActionResult Create(NutritionCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
+        }
     }
+}
 }
