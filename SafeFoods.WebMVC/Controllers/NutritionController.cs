@@ -14,8 +14,16 @@ namespace SafeFoods.WebMVC.Controllers
         // GET: Nutrition
         public ActionResult Index()
         {
-            var model = new NutritionListItem[0];
+            NutritionService service = CreateNutritionService();
+            var model = service.GetNutritions();
             return View(model);
+        }
+
+        private NutritionService CreateNutritionService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new NutritionService(userId);
+            return service;
         }
 
         public ActionResult Create()

@@ -16,10 +16,16 @@ namespace SafeFoods.WebMVC.Controllers
         // GET: Recipe
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new RecipeService(userId);
+            RecipeService service = CreateRecipeService();
             var model = service.GetRecipes();
             return View(model);
+        }
+
+        private RecipeService CreateRecipeService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new RecipeService(userId);
+            return service;
         }
 
         public ActionResult Create()

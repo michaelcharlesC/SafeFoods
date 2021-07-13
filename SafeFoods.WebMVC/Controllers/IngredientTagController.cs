@@ -15,10 +15,17 @@ namespace SafeFoods.WebMVC.Controllers
         // GET: IngredientTag
         public ActionResult Index()
         {
-            var model = new IngredientTagListItem[0];
+            IngredientTagService service = CreateIngredientTagService();
+            var model = service.GetIngredientTags();
             return View(model);
         }
 
+        private IngredientTagService CreateIngredientTagService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new IngredientTagService(userId);
+            return service;
+        }
         public ActionResult Create()
         {
             return View();

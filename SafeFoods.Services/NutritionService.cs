@@ -37,7 +37,7 @@ namespace SafeFoods.Services
             }
         }
 
-        public IEnumerable<NutritionListItem> GetIngredientTypes()
+        public IEnumerable<NutritionListItem> GetNutritions()
         {
             using (var ctx = new ApplicationDbContext())
             {

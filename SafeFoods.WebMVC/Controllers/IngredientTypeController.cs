@@ -15,8 +15,16 @@ namespace SafeFoods.WebMVC.Controllers
         // GET: IngredientType
         public ActionResult Index()
         {
-            var model = new IngredientTypeListItem[0];
+            IngredientTypeService service = CreateIngredientTypeService();
+            var model = service.GetIngredientTypes();
             return View(model);
+        }
+
+        private IngredientTypeService CreateIngredientTypeService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new IngredientTypeService(userId);
+            return service;
         }
         public ActionResult Create()
         {
