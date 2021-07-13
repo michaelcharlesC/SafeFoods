@@ -42,13 +42,24 @@ namespace SafeFoods.WebMVC.Controllers
                 return View(model);
             }
 
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new RecipeService(userId);
+            var service = CreateRecipeService();
 
-            service.CreateRecipe(model);
+            if (service.CreateRecipe(model))
+            {
+                return RedirectToAction("Index");
+            };
 
-            return RedirectToAction("Index");
 
+            return View(model);
+
+        }
+        public ActionResult Details(int id)
+        {
+            var svc = CreateRecipeService();
+
+            var model = svc.GetRecipeById(id);
+
+            return View(model);
         }
 
 

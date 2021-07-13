@@ -55,5 +55,24 @@ namespace SafeFoods.Services
                 return query.ToArray();
             }
         }
+
+        public RecipeDetail GetRecipeById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Recipes.Single(e => e.RecipeId == id && e.OwnerId == _userId);
+                return new RecipeDetail
+                {
+                    RecipeId = entity.RecipeId,
+                    Name = entity.Name,
+                    Description = entity.Description,
+                    Instructions = entity.Instructions,
+                    PrepTime = entity.PrepTime,
+                    CookTime = entity.CookTime,
+                    DateAdded = entity.DateAdded,
+                    DateModified = entity.DateModified
+                };
+            }
+        }
     }
 }

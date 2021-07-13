@@ -21,9 +21,6 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Rating)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.DateAdded)
         </th>
         <th></th>
@@ -41,15 +38,12 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Rating)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.DateAdded)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { id=item.RecipeId  }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.RecipeId }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.RecipeId })
         </td>
     </tr>
 }

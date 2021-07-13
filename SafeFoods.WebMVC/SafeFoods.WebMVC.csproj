@@ -240,12 +240,16 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Recipe\Index.cshtml" />
     <Content Include="Views\Nutrition\Index.cshtml" />
-    <Content Include="Views\IngredientType\Index.cshtml" />
     <Content Include="Views\IngredientTag\Index.cshtml" />
     <Content Include="Views\Recipe\Create.cshtml" />
     <Content Include="Views\Nutrition\Create.cshtml" />
     <Content Include="Views\IngredientType\Create.cshtml" />
     <Content Include="Views\IngredientTag\Create.cshtml" />
+    <Content Include="Views\IngredientType\Index.cshtml" />
+    <Content Include="Views\Recipe\Details.cshtml" />
+    <Content Include="Views\Nutrition\Details.cshtml" />
+    <Content Include="Views\IngredientTag\Details.cshtml" />
+    <Content Include="Views\IngredientType\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

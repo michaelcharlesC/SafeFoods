@@ -31,6 +31,8 @@ namespace SafeFoods.WebMVC.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(IngredientTagCreate model)
         {
             if (!ModelState.IsValid)
@@ -38,15 +40,25 @@ namespace SafeFoods.WebMVC.Controllers
                 return View(model);
             }
 
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new IngredientTagService(userId);
+            var service = CreateIngredientTagService();
+            if (service.CreateIngredientTag(model))
+            {
+                return RedirectToAction("Index");
+            };
 
-            service.CreateIngredientTag(model);
+            return View(model);
+            
+        }
 
-            return RedirectToAction("Index");
+        public ActionResult Details(int id)
+        {
+            var svc = CreateIngredientTagService();
+
+            var model = svc.GetIngredientTagById(id);
+
+            return View(model);
         }
     }
 
     }
-}
-}
+

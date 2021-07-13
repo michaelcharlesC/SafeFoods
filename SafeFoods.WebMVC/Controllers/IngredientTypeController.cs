@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using SafeFoods.Data;
 using SafeFoods.Models.IngredientTagModels;
 using SafeFoods.Models.IngredientTypeModels;
 using SafeFoods.Services;
@@ -31,6 +32,8 @@ namespace SafeFoods.WebMVC.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(IngredientTypeCreate model)
         {
             if (!ModelState.IsValid)
@@ -38,13 +41,26 @@ namespace SafeFoods.WebMVC.Controllers
                 return View(model);
             }
 
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new IngredientTypeService(userId);
+            var service = CreateIngredientTypeService();
 
-            service.CreateIngredientType(model);
+            if (service.CreateIngredientType(model))
+            {
+                return RedirectToAction("Index");
+            };
 
-            return RedirectToAction("Index");
+            return View(model);
+
         }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateIngredientTypeService();
+
+            var model = svc.GetIngredientTypeById(id);
+
+            return View(model);
+        }
+
+        
     }
-}
 }

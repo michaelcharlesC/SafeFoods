@@ -31,6 +31,8 @@ namespace SafeFoods.WebMVC.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(NutritionCreate model)
         {
             if (!ModelState.IsValid)
@@ -38,13 +40,24 @@ namespace SafeFoods.WebMVC.Controllers
                 return View(model);
             }
 
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new NutritionService(userId);
+            var service = CreateNutritionService();
 
-            service.CreateNutrition(model);
+            if (service.CreateNutrition(model))
+            {
+                return RedirectToAction("Index");
+            };
 
-            return RedirectToAction("Index");
+            return View(model);
+
+        }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateNutritionService();
+
+            var model = svc.GetNutritionById(id);
+
+            return View(model);
         }
     }
-}
 }

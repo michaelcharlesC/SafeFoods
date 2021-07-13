@@ -52,5 +52,22 @@ namespace SafeFoods.Services
                 return query.ToArray();
             }
         }
+
+        public IngredientTagDetail GetIngredientTagById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.IngredientTags.Single(e => e.IngredientTagId == id && e.OwnerId == _userId);
+                return new IngredientTagDetail
+                {
+                    IngredientTagId = entity.IngredientTagId,
+                    Name = entity.Name,
+                    DateAdded = entity.DateAdded,
+                    DateModified = entity.DateModified,
+                    RecipeList = entity.RecipesList.ToList()
+                    
+                };
+            }
+        }
     }
 }
