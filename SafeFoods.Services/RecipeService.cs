@@ -74,5 +74,26 @@ namespace SafeFoods.Services
                 };
             }
         }
+
+        public bool UpdateRecipe(RecipeEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Recipes.Single(e => e.RecipeId == model.RecipeId && e.OwnerId == _userId);
+
+                entity.Name = model.Name;
+                entity.Description = model.Description;
+                entity.Instructions = model.Instructions;
+                entity.PrepTime = model.PrepTime;
+                entity.CookTime = model.CookTime;
+
+                return ctx.SaveChanges() == 1;
+
+            }
+
+
+        }
+
+
     }
 }

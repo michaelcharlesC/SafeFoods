@@ -59,5 +59,44 @@ namespace SafeFoods.WebMVC.Controllers
 
             return View(model);
         }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateNutritionService();
+
+            var detail = service.GetNutritionById(id);
+            var model = new NutritionEdit
+            {
+                RecipeID = detail.RecipeID,
+                Carbohydrates = detail.Carbohydrates,
+                Calories = detail.Calories,
+                FatGram = detail.FatGram,
+                Protein = detail.Protein,
+                Fiber = detail.Fiber
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, NutritionEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.RecipeID != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateNutritionService();
+
+            if (service.UpdateNutrition(model))
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
+        }
     }
 }

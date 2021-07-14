@@ -64,5 +64,21 @@ namespace SafeFoods.Services
                 };
             }
         }
+
+        public bool UpdateIngredientType(IngredientTypeEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.IngredientTypes.Single(e => e.IngredientTypeId == model.IngredientTypeId && e.OwnerId == _userId);
+
+                entity.Name = model.Name;
+
+
+                return ctx.SaveChanges() == 1;
+
+            }
+
+
+        }
     }
 }

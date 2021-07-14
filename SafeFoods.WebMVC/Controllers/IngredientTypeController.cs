@@ -61,6 +61,28 @@ namespace SafeFoods.WebMVC.Controllers
             return View(model);
         }
 
-        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, IngredientTypeEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.IngredientTypeId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateIngredientTypeService();
+
+            if (service.UpdateIngredientType(model))
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
+        }
+
+
     }
 }

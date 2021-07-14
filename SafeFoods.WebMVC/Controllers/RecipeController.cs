@@ -62,6 +62,45 @@ namespace SafeFoods.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateRecipeService();
+
+            var detail = service.GetRecipeById(id);
+            var model = new RecipeEdit
+            {
+                RecipeId = detail.RecipeId,
+                Name = detail.Name,
+                Description = detail.Description,
+                Instructions = detail.Instructions,
+                PrepTime = detail.PrepTime,
+                CookTime = detail.CookTime
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id,RecipeEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.RecipeId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateRecipeService();
+
+            if (service.UpdateRecipe(model))
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
+        }
+
 
     }
 }

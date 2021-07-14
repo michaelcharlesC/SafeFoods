@@ -73,5 +73,23 @@ namespace SafeFoods.Services
                 };
             }
         }
+
+        public bool UpdateNutrition(NutritionEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Nutritions.Single(e => e.RecipeID == model.RecipeID && e.OwnerId == _userId);
+
+                entity.Carbohydrates = model.Carbohydrates;
+                entity.Calories = model.Calories;
+                entity.FatGram = model.FatGram;
+                entity.Protein = model.Protein;
+
+                return ctx.SaveChanges() == 1;
+
+            }
+
+
+        }
     }
 }
