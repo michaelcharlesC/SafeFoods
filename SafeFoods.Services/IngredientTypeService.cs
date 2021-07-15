@@ -80,5 +80,17 @@ namespace SafeFoods.Services
 
 
         }
+
+        public bool DeleteIngredientType(int IngredientTypeId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.IngredientTypes.Single(e => e.IngredientTypeId == IngredientTypeId && e.OwnerId == _userId);
+
+                ctx.IngredientTypes.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

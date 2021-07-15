@@ -98,5 +98,25 @@ namespace SafeFoods.WebMVC.Controllers
 
             return View(model);
         }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateNutritionService();
+
+            var model = svc.GetNutritionById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateNutritionService();
+            service.DeleteNutrition(id);
+            return RedirectToAction("Index");
+        }
     }
 }

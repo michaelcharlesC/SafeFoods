@@ -86,5 +86,17 @@ namespace SafeFoods.Services
 
 
         }
+
+        public bool DeleteIngredientTag(int IngredientTagId)
+        {
+            using(var ctx =new ApplicationDbContext())
+            {
+                var entity = ctx.IngredientTags.Single(e => e.IngredientTagId == IngredientTagId && e.OwnerId == _userId);
+
+                ctx.IngredientTags.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

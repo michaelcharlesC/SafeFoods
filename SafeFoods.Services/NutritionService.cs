@@ -91,5 +91,17 @@ namespace SafeFoods.Services
 
 
         }
+
+        public bool DeleteNutrition(int NutritionId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Nutritions.Single(e => e.RecipeID == NutritionId && e.OwnerId == _userId);
+
+                ctx.Nutritions.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
