@@ -58,6 +58,43 @@ namespace SafeFoods.WebMVC.Controllers
 
             return View(model);
         }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateIngredientTagService();
+
+            var detail = service.GetIngredientTagById(id);
+            var model = new IngredientTagEdit
+            {
+                IngredientTagId = detail.IngredientTagId,
+                Name = detail.Name,
+                DateModified = detail.DateModified
+
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, IngredientTagEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.IngredientTagId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateIngredientTagService();
+
+            if (service.UpdateIngredientTag(model))
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
+        }
     }
 
     }

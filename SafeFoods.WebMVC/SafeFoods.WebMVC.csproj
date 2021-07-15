@@ -253,6 +253,7 @@
     <Content Include="Views\Recipe\Edit.cshtml" />
     <Content Include="Views\Nutrition\Edit.cshtml" />
     <Content Include="Views\IngredientType\Edit.cshtml" />
+    <Content Include="Views\IngredientTag\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

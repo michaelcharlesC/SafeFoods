@@ -61,6 +61,20 @@ namespace SafeFoods.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateIngredientTypeService();
+
+            var detail = service.GetIngredientTypeById(id);
+            var model = new IngredientTypeEdit
+            {
+                IngredientTypeId = detail.IngredientTypeId,
+                Name = detail.Name
+                
+            };
+            return View(model);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IngredientTypeEdit model)
