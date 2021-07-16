@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using SafeFoods.Data;
 using SafeFoods.Models;
 using SafeFoods.Models.RecipeModels;
 using SafeFoods.Services;
@@ -60,6 +61,16 @@ namespace SafeFoods.WebMVC.Controllers
             var model = svc.GetRecipeById(id);
 
             return View(model);
+        }
+
+        public ActionResult GetAllByTag(IngredientTag tag)
+        {
+            var service = CreateRecipeService();
+            var details = service.GetRecipeByIngredient(tag);
+
+            return View(details);
+
+
         }
 
         public ActionResult Edit(int id)

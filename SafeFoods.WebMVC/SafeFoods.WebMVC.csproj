@@ -259,6 +259,7 @@
     <Content Include="Views\IngredientType\Delete.cshtml" />
     <Content Include="Views\Nutrition\Delete.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
+    <Content Include="Views\Recipe\GetAllByTag.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

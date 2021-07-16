@@ -13,6 +13,8 @@ namespace SafeFoods.Models.IngredientTagModels
         [MaxLength(15, ErrorMessage = " There are too many characters in this field.")]
         [MinLength(2, ErrorMessage = "Please add at least 2 characters")]
         public string Name { get; set; }
-        public DateTimeOffset DateAdded { get; set; }
+        public int IngredientTypeId { get; set; }
+
+
     }
 }

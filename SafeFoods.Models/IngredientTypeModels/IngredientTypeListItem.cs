@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SafeFoods.Models.IngredientTagModels
+namespace SafeFoods.Models.IngredientTypeModels
 {
     public class IngredientTypeListItem
     {

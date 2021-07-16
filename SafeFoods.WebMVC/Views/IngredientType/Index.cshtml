@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SafeFoods.Models.IngredientTypeModels.IngredientTypeDetail>
+﻿@model IEnumerable<SafeFoods.Models.IngredientTypeModels.IngredientTypeListItem>
 
 @{
     ViewBag.Title = "Index";
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { id=item.IngredientTypeId  }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IngredientTypeId }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.IngredientTypeId })
         </td>
     </tr>
 }

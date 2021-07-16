@@ -41,7 +41,7 @@ namespace SafeFoods.Services
                 var query =
                     ctx
                     .IngredientTypes
-                    .Where(e => e.OwnerId == _userId)
+                    //.Where(e => e.OwnerId == _userId)
                     .Select(e => new IngredientTypeListItem
                     {
                         IngredientTypeId = e.IngredientTypeId,

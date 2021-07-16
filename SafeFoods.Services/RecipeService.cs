@@ -45,9 +45,10 @@ namespace SafeFoods.Services
                 var query =
                     ctx
                     .Recipes
-                    .Where(e => e.OwnerId == _userId)
+                    //.Where(e => e.OwnerId == _userId)
                     .Select(e => new RecipeListItem
                     {
+                        RecipeId = e.RecipeId,
                         Name = e.Name,
                         Description =e.Description,
                         DateAdded = e.DateAdded
@@ -60,7 +61,7 @@ namespace SafeFoods.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Recipes.Single(e => e.RecipeId == id && e.OwnerId == _userId);
+                var entity = ctx.Recipes.Single(e => e.RecipeId == id /*&& e.OwnerId == _userId*/);
                 return new RecipeDetail
                 {
                     RecipeId = entity.RecipeId,
@@ -103,6 +104,26 @@ namespace SafeFoods.Services
                 ctx.Recipes.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public IEnumerable<RecipeListItem> GetRecipeByIngredient(IngredientTag tag)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Recipes
+                    .Where(e => e.ListOfIngredients.Contains(tag))
+                    .Select(e => new RecipeListItem
+                    {
+                        RecipeId = e.RecipeId,
+                        Name = e.Name,
+                        Description = e.Description,
+                        DateAdded = e.DateAdded
+                    });
+                return entity.ToList();
+                    
+                    
+                
             }
         }
 
