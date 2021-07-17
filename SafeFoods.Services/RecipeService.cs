@@ -57,6 +57,25 @@ namespace SafeFoods.Services
             }
         }
 
+        public IEnumerable<RecipeListItem> GetRecipesForOwner()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Recipes
+                    .Where(e => e.OwnerId == _userId)
+                    .Select(e => new RecipeListItem
+                    {
+                        RecipeId = e.RecipeId,
+                        Name = e.Name,
+                        Description = e.Description,
+                        DateAdded = e.DateAdded
+                    });
+                return query.ToArray();
+            }
+        }
+
         public RecipeDetail GetRecipeById(int id)
         {
             using (var ctx = new ApplicationDbContext())

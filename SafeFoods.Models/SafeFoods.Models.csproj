@@ -70,6 +70,7 @@
     <Compile Include="RecipeModels\RecipeCreate.cs" />
     <Compile Include="RecipeModels\RecipeDetail.cs" />
     <Compile Include="RecipeModels\RecipeEdit.cs" />
+    <Compile Include="RecipeModels\RecipeFridgeSearch.cs" />
     <Compile Include="RecipeModels\RecipeListItem.cs" />
   </ItemGroup>
   <ItemGroup>

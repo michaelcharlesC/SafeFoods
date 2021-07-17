@@ -21,6 +21,13 @@ namespace SafeFoods.WebMVC.Controllers
             var model = service.GetRecipes();
             return View(model);
         }
+        [ActionName("PrivateIndex")]
+        public ActionResult IndexOwner()
+        {
+            RecipeService service = CreateRecipeService();
+            var model = service.GetRecipesForOwner();
+            return View(model);
+        }
 
         private RecipeService CreateRecipeService()
         {
@@ -54,6 +61,11 @@ namespace SafeFoods.WebMVC.Controllers
             return View(model);
 
         }
+        public ActionResult FridgeSearch()
+        {
+            return View();
+        }
+        //public ActionResult FridgeSearch(int ingTypeOne, int ingTypeTwo, int intTypeThree, int intTypeFour)
         public ActionResult Details(int id)
         {
             var svc = CreateRecipeService();
