@@ -145,7 +145,16 @@ namespace SafeFoods.Services
                 
             }
         }
+        public IEnumerable<RecipeListItem>GetAllRecipesByTag(List<IngredientTag> tagList)
+        {
+            var ctx = new ApplicationDbContext();
+            List<Recipe> recipe2 = ctx.Recipes.
+            
+            // use an INGREDIENTTAG LIST as an argument, create method to do that . The view should should send an ICOLLECTION back to this method.
+           
 
+            
+        }
 
     }
 }

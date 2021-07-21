@@ -4,7 +4,7 @@
     ViewBag.Title = "IndexOwner";
 }
 
-<h2>IndexOwner</h2>
+<h2>My Recipe Portofolio</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -43,7 +43,9 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new {  id=item.RecipeId }) |
             @Html.ActionLink("Details", "Details", new { id = item.RecipeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.RecipeId })
+            @Html.ActionLink("Delete", "Delete", new { id = item.RecipeId }) |
+
+
         </td>
     </tr>
 }
