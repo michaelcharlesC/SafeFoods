@@ -145,10 +145,23 @@ namespace SafeFoods.Services
                 
             }
         }
-        public IEnumerable<RecipeListItem>GetAllRecipesByTag(List<IngredientTag> tagList)
+        public IEnumerable<RecipeListItem>FridgeSearch(List<IngredientTag> tagList) //get ALL recipes that have the same INGREDIENT TAGS from the list
         {
-            var ctx = new ApplicationDbContext();
-            List<Recipe> recipe2 = ctx.Recipes.
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Recipes
+                    .Where(e => e.ListOfIngredients == tagList)
+                    .Select(e => new RecipeListItem
+                    {
+                        RecipeId = e.RecipeId,
+                        Name = e.Name,
+                        Description = e.Description,
+                        DateAdded = e.DateAdded
+                    });
+                return entity.ToArray();
+            }
+            
+
             
             // use an INGREDIENTTAG LIST as an argument, create method to do that . The view should should send an ICOLLECTION back to this method.
            

@@ -69,6 +69,10 @@
     <Compile Include="Migrations\202107132347376_Second.Designer.cs">
       <DependentUpon>202107132347376_Second.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107230059254_AddedNulProprt.cs" />
+    <Compile Include="Migrations\202107230059254_AddedNulProprt.Designer.cs">
+      <DependentUpon>202107230059254_AddedNulProprt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Recipe.cs" />
     <Compile Include="Nutrition.cs" />
@@ -87,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107132347376_Second.resx">
       <DependentUpon>202107132347376_Second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107230059254_AddedNulProprt.resx">
+      <DependentUpon>202107230059254_AddedNulProprt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

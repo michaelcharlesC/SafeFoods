@@ -10,7 +10,7 @@
 </head>
 <body>
 
-        <div class="navbar navbar-dark bg-dark" @*style="background-image: url(https://i1.wp.com/idealog.co.nz/wp-content/uploads/media/images2015/articles/2016/04/healthy_food_wallpaper_22_wide_wallpaper.jpg?w=1300&ssl=1)"*@>
+        <div id="testing" class="navbar navbar-dark bg-dark" @*style="background-image: url(https://i1.wp.com/idealog.co.nz/wp-content/uploads/media/images2015/articles/2016/04/healthy_food_wallpaper_22_wide_wallpaper.jpg?w=1300&ssl=1)"*@>
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -28,8 +28,9 @@
                             <li>@Html.ActionLink("My Recipes", "IndexOwner", "Recipe")</li>
                         }
 
-                        <li>@Html.ActionLink("Fridge Search", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Fridge Search", "FridgeSearch", "Recipe")</li>
+                        <li>@Html.ActionLink("Ingredients", "Index", "IngredientTag")</li>
+
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>

@@ -38,6 +38,7 @@ namespace SafeFoods.WebMVC.Controllers
 
         public ActionResult Create()
         {
+            
             return View();
         }
 
@@ -61,11 +62,32 @@ namespace SafeFoods.WebMVC.Controllers
             return View(model);
 
         }
+        
         public ActionResult FridgeSearch()
         {
+
+            ViewBag.RecipeFridgeSearch = new IngredientTagService().GetIngredientTags();
             return View();
         }
-        //public ActionResult FridgeSearch(int ingTypeOne, int ingTypeTwo, int intTypeThree, int intTypeFour)
+
+
+        [ActionName("FridgeSearchFunctionality")]
+        public ActionResult FridgeSearch(List<IngredientTag> model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateRecipeService();
+
+            var result = service.FridgeSearch(model);
+
+            if (result != null)
+            {
+                return View(result);
+            }
+
+            return View(model);
+        }
+
         public ActionResult Details(int id)
         {
             var svc = CreateRecipeService();
@@ -101,6 +123,8 @@ namespace SafeFoods.WebMVC.Controllers
             };
             return View(model);
         }
+
+        
 
         [HttpPost]
         [ValidateAntiForgeryToken]

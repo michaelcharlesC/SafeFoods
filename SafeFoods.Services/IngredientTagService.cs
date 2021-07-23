@@ -1,6 +1,7 @@
 ﻿using SafeFoods.Data;
 using SafeFoods.Models;
 using SafeFoods.Models.IngredientTagModels;
+using SafeFoods.Models.RecipeModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,9 @@ namespace SafeFoods.Services
         {
             _userId = userId;
         }
+
+        public IngredientTagService() { }
+
 
         public bool CreateIngredientTag(IngredientTagCreate model)
         {
@@ -35,6 +39,24 @@ namespace SafeFoods.Services
             }
         }
 
+        //public IEnumerable<RecipeFridgeSearch> FridgeSearchTags()
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var query =
+        //            ctx
+        //            .IngredientTags
+        //            //.Where(e => e.OwnerId == _userId)
+        //            .Select(e => new RecipeFridgeSearch
+        //            {
+        //                ingredientTagOneId = e.ingredientTagOneId, 
+        //                Name = e.Name
+        //            });
+
+        //        return query.ToArray();
+        //    }
+        //}
+
         public IEnumerable<IngredientTagListItem> GetIngredientTags()
         {
             using( var ctx = new ApplicationDbContext())
@@ -42,7 +64,7 @@ namespace SafeFoods.Services
                 var query =
                     ctx
                     .IngredientTags
-                    .Where(e => e.OwnerId == _userId)
+                    //.Where(e => e.OwnerId == _userId)
                     .Select(e => new IngredientTagListItem
                     {
                         IngredientTagId = e.IngredientTagId,

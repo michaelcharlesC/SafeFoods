@@ -261,6 +261,7 @@
     <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
     <Content Include="Views\Recipe\GetAllByTag.cshtml" />
     <Content Include="Views\Recipe\IndexOwner.cshtml" />
+    <Content Include="Views\Recipe\FridgeSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
