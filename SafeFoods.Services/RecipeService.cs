@@ -126,7 +126,7 @@ namespace SafeFoods.Services
             }
         }
 
-        public IEnumerable<RecipeListItem> GetRecipeByIngredient(IngredientTag tag)
+        public IEnumerable<RecipeListItem> GetRecipesByIngredient(IngredientTag tag)
         {
             using(var ctx = new ApplicationDbContext())
             {
@@ -139,12 +139,15 @@ namespace SafeFoods.Services
                         Description = e.Description,
                         DateAdded = e.DateAdded
                     });
-                return entity.ToList();
+                return entity;
+                    
                     
                     
                 
             }
         }
+
+        
         public IEnumerable<RecipeListItem>FridgeSearch(List<IngredientTag> tagList) //get ALL recipes that have the same INGREDIENT TAGS from the list
         {
             using (var ctx = new ApplicationDbContext())

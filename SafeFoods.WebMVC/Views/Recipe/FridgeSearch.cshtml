@@ -17,7 +17,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.ingredientTagOneId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownList("First Ingredient", new SelectList(ViewBag.RecipeFridgeSearch, "ingredientTagOneId", ("ingredientTagOneName")));
+            @Html.DropDownList("First Ingredient", new SelectList(ViewBag.RecipeFridgeSearch, "IngredientTagId", ("Name")));
         </div>
     </div>
 
@@ -25,7 +25,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.ingredientTagTwoId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownList("ingredientTagTwoId", new SelectList(ViewBag.IngredientTagList, "ingredientTagTwoId", ("ingredientTagTwoName")));
+            @Html.DropDownList("ingredientTagTwoId", new SelectList(ViewBag.RecipeFridgeSearch, "IngredientTagId", ("Name")));
         </div>
     </div>
 
@@ -33,14 +33,14 @@
     <div class="form-group">
         @Html.LabelFor(model => model.ingredientTagThreeId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownList("ingredientTagThreeId", new SelectList(ViewBag.IngredientTagList, "ingredientTagThreeId", ("ingredientTagThreeName")));
+            @Html.DropDownList("ingredientTagThreeId", new SelectList(ViewBag.RecipeFridgeSearch, "IngredientTagId", ("Name")));
         </div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.ingredientTagFourId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownList("ingredientTagFourId", new SelectList(ViewBag.IngredientTagList, "ingredientTagFourId", ("ingredientTagFourName")));
+            @Html.DropDownList("ingredientTagFourId", new SelectList(ViewBag.RecipeFridgeSearch, "IngredientTagId", ("Name")));
         </div>
     </div>
 </div>
@@ -48,7 +48,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Search" class="btn btn-default" />
         </div>
     </div>
 }

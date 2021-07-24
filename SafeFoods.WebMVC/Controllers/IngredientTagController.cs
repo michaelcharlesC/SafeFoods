@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNet.Identity;
+using SafeFoods.Data;
 using SafeFoods.Models;
 using SafeFoods.Models.IngredientTagModels;
+using SafeFoods.Models.RecipeModels;
 using SafeFoods.Services;
 using System;
 using System.Collections.Generic;
@@ -113,6 +115,31 @@ namespace SafeFoods.WebMVC.Controllers
         {
             var service = CreateIngredientTagService();
             service.DeleteIngredientTag(id);
+            return RedirectToAction("Index");
+        }
+        
+        public ActionResult AddTagToRecipeIngList()
+        {
+
+            ViewBag.AddTagToRecipeIngList = new IngredientTagService().GetIngredientTags();
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult AddTagToRecipeIngList(int recipeId, IngredientTag tagOne, IngredientTag tagTwo, IngredientTag tagThree, IngredientTag tagFour)
+        {
+            //if (!ModelState.IsValid) return View(model);
+
+            var service = CreateIngredientTagService();
+
+            var result = service.AddIngredientTagToRecipe(recipeId, tagOne, tagTwo, tagThree, tagFour);
+
+            if (result== false)
+            {
+                return View(result);
+            }
+
             return RedirectToAction("Index");
         }
     }

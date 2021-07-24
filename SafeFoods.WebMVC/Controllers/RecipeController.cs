@@ -100,7 +100,7 @@ namespace SafeFoods.WebMVC.Controllers
         public ActionResult GetAllByTag(IngredientTag tag)
         {
             var service = CreateRecipeService();
-            var details = service.GetRecipeByIngredient(tag);
+            var details = service.GetRecipesByIngredient(tag);
 
             return View(details);
 

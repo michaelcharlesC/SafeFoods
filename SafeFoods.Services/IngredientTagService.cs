@@ -38,6 +38,21 @@ namespace SafeFoods.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public bool AddIngredientTagToRecipe(int recipeId, IngredientTag tagOne, IngredientTag tagTwo, IngredientTag tagThree, IngredientTag tagFour)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+               
+                var entity = ctx.Recipes.Find(recipeId);
+                entity.ListOfIngredients.Add(tagOne);
+                entity.ListOfIngredients.Add(tagTwo);
+                entity.ListOfIngredients.Add(tagThree);
+                entity.ListOfIngredients.Add(tagFour);
+
+                return ctx.SaveChanges() == 1;
+
+            }
+        }
 
         //public IEnumerable<RecipeFridgeSearch> FridgeSearchTags()
         //{
@@ -49,7 +64,7 @@ namespace SafeFoods.Services
         //            //.Where(e => e.OwnerId == _userId)
         //            .Select(e => new RecipeFridgeSearch
         //            {
-        //                ingredientTagOneId = e.ingredientTagOneId, 
+        //                ingredientTagOneId = e.ingredientTagOneId,
         //                Name = e.Name
         //            });
 
@@ -120,5 +135,7 @@ namespace SafeFoods.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        
     }
 }
