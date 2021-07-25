@@ -50,12 +50,12 @@ namespace SafeFoods.WebMVC.Controllers
             return View(model);
 
         }
-
-        public ActionResult Details(int id)
+        [ActionName("Details")]
+        public ActionResult Details(int recipeId)
         {
             var svc = CreateNutritionService();
 
-            var model = svc.GetNutritionById(id);
+            var model = svc.GetNutritionById(recipeId);
 
             return View(model);
         }
@@ -118,5 +118,12 @@ namespace SafeFoods.WebMVC.Controllers
             service.DeleteNutrition(id);
             return RedirectToAction("Index");
         }
+
+        //public ActionResult GetNutritionById(int recipeId)
+        //{
+        //    var svc = CreateNutritionService();
+        //    var model = svc.GetNutritionById(recipeId);
+        //    return View(model);
+        //}
     }
 }

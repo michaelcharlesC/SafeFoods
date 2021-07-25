@@ -38,8 +38,36 @@ namespace SafeFoods.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        public bool AddIngredientTagToRecipe(int recipeId, IngredientTag tagOne, IngredientTag tagTwo, IngredientTag tagThree, IngredientTag tagFour)
+        public bool AddIngredientTagToRecipe(int recipeId, IngTagModel model)
         {
+
+            var tagOne = new IngredientTag();
+            var tagTwo = new IngredientTag();
+            var tagThree = new IngredientTag();
+            var tagFour = new IngredientTag();
+
+
+            tagOne.DateAdded = DateTime.Now;
+            tagOne.OwnerId = _userId;
+            tagOne.Name = GetIngredientTagById(model.ingredientTagOneId).Name;
+            tagOne.IngredientTagId = model.ingredientTagOneId;
+
+            tagTwo.DateAdded = DateTime.Now;
+            tagTwo.OwnerId = _userId;
+            tagTwo.Name = GetIngredientTagById(model.ingredientTagTwoId).Name;
+            tagTwo.IngredientTagId = model.ingredientTagTwoId;
+
+            tagThree.DateAdded = DateTime.Now;
+            tagThree.OwnerId = _userId;
+            tagThree.Name = GetIngredientTagById(model.ingredientTagThreeId).Name;
+            tagThree.IngredientTagId = model.ingredientTagThreeId;
+
+
+            tagFour.DateAdded = DateTime.Now;
+            tagFour.OwnerId = _userId;
+            tagFour.Name = GetIngredientTagById(model.ingredientTagFourId).Name;
+            tagFour.IngredientTagId = model.ingredientTagFourId;
+
             using (var ctx = new ApplicationDbContext())
             {
                
@@ -49,7 +77,7 @@ namespace SafeFoods.Services
                 entity.ListOfIngredients.Add(tagThree);
                 entity.ListOfIngredients.Add(tagFour);
 
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() >= 1;
 
             }
         }
@@ -94,7 +122,7 @@ namespace SafeFoods.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.IngredientTags.Single(e => e.IngredientTagId == id && e.OwnerId == _userId);
+                var entity = ctx.IngredientTags.Single(e => e.IngredientTagId == id);
                 return new IngredientTagDetail
                 {
                     IngredientTagId = entity.IngredientTagId,
@@ -111,7 +139,7 @@ namespace SafeFoods.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.IngredientTags.Single(e => e.IngredientTagId == model.IngredientTagId && e.OwnerId == _userId);
+                var entity = ctx.IngredientTags.Single(e => e.IngredientTagId == model.IngredientTagId);
 
                 entity.Name = model.Name;
                 entity.DateModified = DateTimeOffset.Now;
@@ -128,7 +156,7 @@ namespace SafeFoods.Services
         {
             using(var ctx =new ApplicationDbContext())
             {
-                var entity = ctx.IngredientTags.Single(e => e.IngredientTagId == IngredientTagId && e.OwnerId == _userId);
+                var entity = ctx.IngredientTags.Single(e => e.IngredientTagId == IngredientTagId);
 
                 ctx.IngredientTags.Remove(entity);
 

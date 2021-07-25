@@ -58,6 +58,8 @@
     <Compile Include="IngredientTagModels\IngredientTagDetail.cs" />
     <Compile Include="IngredientTagModels\IngredientTagEdit.cs" />
     <Compile Include="IngredientTagModels\IngredientTagListItem.cs" />
+    <Compile Include="IngredientTagModels\IngredientTagSingle.cs" />
+    <Compile Include="IngredientTagModels\IngTagModel.cs" />
     <Compile Include="IngredientTypeModels\IngredientTypeCreate.cs" />
     <Compile Include="IngredientTypeModels\IngredientTypeDetail.cs" />
     <Compile Include="IngredientTypeModels\IngredientTypeEdit.cs" />

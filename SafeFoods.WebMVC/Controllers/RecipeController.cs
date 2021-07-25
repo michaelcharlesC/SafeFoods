@@ -97,10 +97,10 @@ namespace SafeFoods.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult GetAllByTag(IngredientTag tag)
+        public ActionResult GetAllByTag(int tagId)
         {
             var service = CreateRecipeService();
-            var details = service.GetRecipesByIngredient(tag);
+            var details = service.GetRecipesByIngredientId(tagId);
 
             return View(details);
 

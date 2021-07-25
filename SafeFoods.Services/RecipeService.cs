@@ -126,12 +126,13 @@ namespace SafeFoods.Services
             }
         }
 
-        public IEnumerable<RecipeListItem> GetRecipesByIngredient(IngredientTag tag)
+        public IEnumerable<RecipeListItem> GetRecipesByIngredientId(int tagId)
         {
             using(var ctx = new ApplicationDbContext())
             {
+                var ingredient = ctx.IngredientTags.Single(e => e.IngredientTagId == tagId);
                 var entity = ctx.Recipes
-                    .Where(e => e.ListOfIngredients.Contains(tag))
+                    .Where(e => e.ListOfIngredients.Contains(ingredient))
                     .Select(e => new RecipeListItem
                     {
                         RecipeId = e.RecipeId,
@@ -140,7 +141,6 @@ namespace SafeFoods.Services
                         DateAdded = e.DateAdded
                     });
                 return entity;
-                    
                     
                     
                 

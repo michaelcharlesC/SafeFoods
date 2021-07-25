@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "IndexOwner";
+    ViewBag.Title = "CheckParameters";
 }
 
 <h2>My Recipe Portofolio</h2>
@@ -44,7 +45,9 @@
             @Html.ActionLink("Edit", "Edit", new { id = item.RecipeId }) |
             @Html.ActionLink("Details", "Details", new { id = item.RecipeId }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.RecipeId }) |
-            @Html.ActionLink("Add Ingredients", "AddTagToRecipeIngList", new { id = item.RecipeId })
+            @*@Html.ActionLink("Add Ingredients", "AddTagToRecipeIngList", "IngredientTagController", new { RecipeId = item.RecipeId })*@ |
+            @Html.ActionLink("Add Something", "AddTagToRecipeIngList", "IngredientTag", new { recipeId = item.RecipeId },null) |
+            @Html.ActionLink("Add Nutrition Details", "Create", "Nutrition", new { id = item.RecipeId }, null)
 
 
         </td>

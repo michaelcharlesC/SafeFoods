@@ -117,23 +117,25 @@ namespace SafeFoods.WebMVC.Controllers
             service.DeleteIngredientTag(id);
             return RedirectToAction("Index");
         }
-        
-        public ActionResult AddTagToRecipeIngList()
+        [HttpGet]
+        [ActionName("AddTagToRecipeIngList")]
+        public ActionResult AddTagToRecipeIngList(int recipeId)
         {
-
+            //ViewBag.CheckParameters = recipeId;
             ViewBag.AddTagToRecipeIngList = new IngredientTagService().GetIngredientTags();
             return View();
         }
 
 
         [HttpPost]
-        public ActionResult AddTagToRecipeIngList(int recipeId, IngredientTag tagOne, IngredientTag tagTwo, IngredientTag tagThree, IngredientTag tagFour)
+        [ActionName("AddTagToRecipeIngList")]
+        public ActionResult AddTagToRecipeIngListPost(int recipeId, IngTagModel model)
         {
             //if (!ModelState.IsValid) return View(model);
 
             var service = CreateIngredientTagService();
 
-            var result = service.AddIngredientTagToRecipe(recipeId, tagOne, tagTwo, tagThree, tagFour);
+            var result = service.AddIngredientTagToRecipe(recipeId,model);
 
             if (result== false)
             {

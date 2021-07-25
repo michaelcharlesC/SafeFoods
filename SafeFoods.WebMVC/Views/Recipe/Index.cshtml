@@ -41,8 +41,9 @@
             @Html.DisplayFor(modelItem => item.DateAdded)
         </td>
         <td>
-            
-            @Html.ActionLink("Details", "Details", new {  id=item.RecipeId }) |
+
+            @Html.ActionLink("Details", "Details", new { id = item.RecipeId }) |
+            @Html.ActionLink("See Nutrition", "Details","Nutrition", new { RecipeId = item.RecipeId },null)
 
         </td>
     </tr>

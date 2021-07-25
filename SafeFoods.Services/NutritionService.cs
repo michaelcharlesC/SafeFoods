@@ -47,6 +47,7 @@ namespace SafeFoods.Services
                     .Where(e => e.OwnerId == _userId)
                     .Select(e => new NutritionListItem
                     {
+                        RecipeID = e.RecipeID,
                         Carbohydrates =e.Carbohydrates,
                         Calories = e.Calories,
                         FatGram = e.FatGram,
@@ -58,11 +59,11 @@ namespace SafeFoods.Services
             }
         }
 
-        public NutritionDetail GetNutritionById(int id)
+        public NutritionDetail GetNutritionById(int recipeId)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Nutritions.Single(e => e.RecipeID == id && e.OwnerId == _userId);
+                var entity = ctx.Nutritions.Single(e => e.RecipeID == recipeId /*&& e.OwnerId == _userId*/);
                 return new NutritionDetail
                 {
                     RecipeID = entity.RecipeID,
@@ -103,5 +104,9 @@ namespace SafeFoods.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        
+
+        
     }
 }
