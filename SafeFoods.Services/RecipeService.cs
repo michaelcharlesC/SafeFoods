@@ -147,8 +147,22 @@ namespace SafeFoods.Services
             }
         }
 
-        
-        public IEnumerable<RecipeListItem>FridgeSearch(List<IngredientTag> tagList) //get ALL recipes that have the same INGREDIENT TAGS from the list
+        //public IEnumerable<RecipeListItem> GetRecipesByIngredientId2(int tagId)
+        //{
+        //    using(var ctx = new ApplicationDbContext())
+        //    {
+        //        var ingredient = ctx.IngredientTags.Where(e => e.IngredientTagId == tagId)
+        //            .Select(e => e.RecipesList);
+                
+
+        //        //var entity = ctx.IngredientTags
+        //    }
+           
+        //}
+
+
+
+        public IEnumerable<RecipeListItem>FridgeSearch(RecipeFridgeSearch tagList) //get ALL recipes that have the same INGREDIENT TAGS from the list
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -161,15 +175,12 @@ namespace SafeFoods.Services
                         Description = e.Description,
                         DateAdded = e.DateAdded
                     });
-                return entity.ToArray();
+                return entity;
             }
             
 
             
-            // use an INGREDIENTTAG LIST as an argument, create method to do that . The view should should send an ICOLLECTION back to this method.
-           
-
-            
+            // use an INGREDIENTTAG LIST as an argument, create method to do that . The view should should send an ICOLLECTION back to this method.                       
         }
 
     }

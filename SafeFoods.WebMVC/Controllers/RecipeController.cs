@@ -70,9 +70,9 @@ namespace SafeFoods.WebMVC.Controllers
             return View();
         }
 
-
-        [ActionName("FridgeSearchFunctionality")]
-        public ActionResult FridgeSearch(List<IngredientTag> model)
+        [HttpPost]
+        //[ActionName("FridgeSearchFunctionality")]
+        public ActionResult FridgeSearch(RecipeFridgeSearch model)
         {
             if (!ModelState.IsValid) return View(model);
 

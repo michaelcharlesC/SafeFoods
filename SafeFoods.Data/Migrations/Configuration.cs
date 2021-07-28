@@ -10,7 +10,6 @@ namespace SafeFoods.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "SafeFoods.Data.ApplicationDbContext";
         }
 
         protected override void Seed(SafeFoods.Data.ApplicationDbContext context)

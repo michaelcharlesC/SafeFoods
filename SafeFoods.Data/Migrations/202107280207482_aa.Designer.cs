@@ -7,13 +7,13 @@ namespace SafeFoods.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class aa : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(aa));
         
         string IMigrationMetadata.Id
         {
-            get { return "202107102022112_InitialCreate"; }
+            get { return "202107280207482_aa"; }
         }
         
         string IMigrationMetadata.Source

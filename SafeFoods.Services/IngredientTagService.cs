@@ -41,46 +41,27 @@ namespace SafeFoods.Services
         public bool AddIngredientTagToRecipe(int recipeId, IngTagModel model)
         {
 
-            var tagOne = new IngredientTag();
-            var tagTwo = new IngredientTag();
-            var tagThree = new IngredientTag();
-            var tagFour = new IngredientTag();
-
-
-            tagOne.DateAdded = DateTime.Now;
-            tagOne.OwnerId = _userId;
-            tagOne.Name = GetIngredientTagById(model.ingredientTagOneId).Name;
-            tagOne.IngredientTagId = model.ingredientTagOneId;
-
-            tagTwo.DateAdded = DateTime.Now;
-            tagTwo.OwnerId = _userId;
-            tagTwo.Name = GetIngredientTagById(model.ingredientTagTwoId).Name;
-            tagTwo.IngredientTagId = model.ingredientTagTwoId;
-
-            tagThree.DateAdded = DateTime.Now;
-            tagThree.OwnerId = _userId;
-            tagThree.Name = GetIngredientTagById(model.ingredientTagThreeId).Name;
-            tagThree.IngredientTagId = model.ingredientTagThreeId;
-
-
-            tagFour.DateAdded = DateTime.Now;
-            tagFour.OwnerId = _userId;
-            tagFour.Name = GetIngredientTagById(model.ingredientTagFourId).Name;
-            tagFour.IngredientTagId = model.ingredientTagFourId;
-
             using (var ctx = new ApplicationDbContext())
             {
                
                 var entity = ctx.Recipes.Find(recipeId);
-                entity.ListOfIngredients.Add(tagOne);
-                entity.ListOfIngredients.Add(tagTwo);
-                entity.ListOfIngredients.Add(tagThree);
-                entity.ListOfIngredients.Add(tagFour);
+                entity.ListOfIngredients.Add(ctx.IngredientTags.Find(model.ingredientTagOneId));
+                //ctx.SaveChanges();
+                entity.ListOfIngredients.Add(ctx.IngredientTags.Find(model.ingredientTagTwoId));
+               //ctx.SaveChanges();
+                entity.ListOfIngredients.Add(ctx.IngredientTags.Find(model.ingredientTagThreeId));
+                //ctx.SaveChanges();
+                entity.ListOfIngredients.Add(ctx.IngredientTags.Find(model.ingredientTagFourId));
+                ctx.SaveChanges();
 
-                return ctx.SaveChanges() >= 1;
+
+
+                return true;
 
             }
         }
+
+    
 
         //public IEnumerable<RecipeFridgeSearch> FridgeSearchTags()
         //{

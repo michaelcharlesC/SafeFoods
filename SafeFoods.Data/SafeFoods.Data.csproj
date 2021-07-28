@@ -57,21 +57,9 @@
     <Compile Include="IdentityModels.cs" />
     <Compile Include="IngredientTag.cs" />
     <Compile Include="IngredientType.cs" />
-    <Compile Include="Migrations\202107102022112_InitialCreate.cs" />
-    <Compile Include="Migrations\202107102022112_InitialCreate.Designer.cs">
-      <DependentUpon>202107102022112_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107121907328_FirstMgration.cs" />
-    <Compile Include="Migrations\202107121907328_FirstMgration.Designer.cs">
-      <DependentUpon>202107121907328_FirstMgration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107132347376_Second.cs" />
-    <Compile Include="Migrations\202107132347376_Second.Designer.cs">
-      <DependentUpon>202107132347376_Second.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107230059254_AddedNulProprt.cs" />
-    <Compile Include="Migrations\202107230059254_AddedNulProprt.Designer.cs">
-      <DependentUpon>202107230059254_AddedNulProprt.cs</DependentUpon>
+    <Compile Include="Migrations\202107280207482_aa.cs" />
+    <Compile Include="Migrations\202107280207482_aa.Designer.cs">
+      <DependentUpon>202107280207482_aa.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Recipe.cs" />
@@ -83,17 +71,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202107102022112_InitialCreate.resx">
-      <DependentUpon>202107102022112_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107121907328_FirstMgration.resx">
-      <DependentUpon>202107121907328_FirstMgration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107132347376_Second.resx">
-      <DependentUpon>202107132347376_Second.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107230059254_AddedNulProprt.resx">
-      <DependentUpon>202107230059254_AddedNulProprt.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107280207482_aa.resx">
+      <DependentUpon>202107280207482_aa.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,7 +3,7 @@ namespace SafeFoods.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class aa : DbMigration
     {
         public override void Up()
         {
@@ -16,10 +16,10 @@ namespace SafeFoods.Data.Migrations
                         OwnerId = c.Guid(nullable: false),
                         DateAdded = c.DateTimeOffset(nullable: false, precision: 7),
                         DateModified = c.DateTimeOffset(precision: 7),
-                        IngredientTypeId = c.Int(nullable: false),
+                        IngredientTypeId = c.Int(),
                     })
                 .PrimaryKey(t => t.IngredientTagId)
-                .ForeignKey("dbo.IngredientType", t => t.IngredientTypeId, cascadeDelete: true)
+                .ForeignKey("dbo.IngredientType", t => t.IngredientTypeId)
                 .Index(t => t.IngredientTypeId);
             
             CreateTable(
@@ -28,6 +28,7 @@ namespace SafeFoods.Data.Migrations
                     {
                         IngredientTypeId = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false),
+                        OwnerId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.IngredientTypeId);
             
@@ -40,7 +41,6 @@ namespace SafeFoods.Data.Migrations
                         Name = c.String(nullable: false, maxLength: 30),
                         Description = c.String(nullable: false, maxLength: 100),
                         Instructions = c.String(nullable: false, maxLength: 2000),
-                        Rating = c.Int(),
                         PrepTime = c.Time(nullable: false, precision: 7),
                         CookTime = c.Int(nullable: false),
                         DateAdded = c.DateTimeOffset(nullable: false, precision: 7),
