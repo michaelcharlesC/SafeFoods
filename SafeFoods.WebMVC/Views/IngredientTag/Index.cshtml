@@ -34,7 +34,7 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.IngredientTagId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.IngredientTagId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.IngredientTagId }) |
-                @Html.ActionLink("See Recipes", "GetAllByTag", "Recipe", new { id = item.IngredientTagId })
+                @Html.ActionLink("See Recipes", "GetAllByTag", "Recipe", new { tagId = item.IngredientTagId }, null)
             </td>
         </tr>
     }

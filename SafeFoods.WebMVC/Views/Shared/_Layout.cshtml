@@ -26,6 +26,7 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li>@Html.ActionLink("My Recipes", "IndexOwner", "Recipe")</li>
+                            <li>@Html.ActionLink("Nutritions", "Index", "Nutrition")</li>
                         }
 
                         <li>@Html.ActionLink("Fridge Search", "FridgeSearch", "Recipe")</li>
@@ -41,7 +42,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - SafeFoods -> Your personal GO TO for a heathy diet.   </p>
         </footer>
     </div>
 
