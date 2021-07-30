@@ -82,10 +82,17 @@ namespace SafeFoods.WebMVC.Controllers
 
             if (result != null)
             {
-                return View(result);
+                return FridgeSearchView(result);
             }
 
             return View(model);
+        }
+
+        public ActionResult FridgeSearchView(IEnumerable<RecipeListItem> item)
+        {
+            
+            return View(item);
+
         }
 
         public ActionResult Details(int id)

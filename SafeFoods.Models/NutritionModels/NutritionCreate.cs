@@ -9,9 +9,9 @@ namespace SafeFoods.Models.NutritionModels
 {
     public class NutritionCreate
     {
-        [Required]
-        [Display(Name = "Recipe ID")]
-        public int RecipeID { get; set; }
+        //[Required]
+        //[Display(Name = "Recipe ID")]
+        //public int RecipeID { get; set; }
         [Required]
         [Display(Name = "Grams of Carbohydrates")]
         public int? Carbohydrates { get; set; }

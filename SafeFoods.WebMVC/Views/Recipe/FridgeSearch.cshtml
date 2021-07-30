@@ -17,7 +17,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.ingredientTagOneId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownList("First Ingredient", new SelectList(ViewBag.RecipeFridgeSearch, "IngredientTagId", ("Name")));
+            @Html.DropDownList("ingredientTagOneId", new SelectList(ViewBag.RecipeFridgeSearch, "IngredientTagId", ("Name")));
         </div>
     </div>
 

@@ -263,6 +263,7 @@
     <Content Include="Views\Recipe\IndexOwner.cshtml" />
     <Content Include="Views\Recipe\FridgeSearch.cshtml" />
     <Content Include="Views\IngredientTag\AddTagToRecipeIngList.cshtml" />
+    <Content Include="Views\Recipe\FridgeSearchViewRESULT.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

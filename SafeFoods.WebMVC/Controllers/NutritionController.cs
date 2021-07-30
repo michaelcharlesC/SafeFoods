@@ -33,7 +33,7 @@ namespace SafeFoods.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(NutritionCreate model)
+        public ActionResult Create(int recipeId,NutritionCreate model)
         {
             if (!ModelState.IsValid)
             {
@@ -42,7 +42,7 @@ namespace SafeFoods.WebMVC.Controllers
 
             var service = CreateNutritionService();
 
-            if (service.CreateNutrition(model))
+            if (service.CreateNutrition(recipeId,model))
             {
                 return RedirectToAction("Index");
             };

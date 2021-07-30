@@ -50,7 +50,7 @@ namespace SafeFoods.Services
                     {
                         RecipeId = e.RecipeId,
                         Name = e.Name,
-                        Description =e.Description,
+                        Description = e.Description,
                         DateAdded = e.DateAdded
                     });
                 return query.ToArray();
@@ -116,7 +116,7 @@ namespace SafeFoods.Services
 
         public bool DeleteRecipe(int recipeId)
         {
-            using(var ctx =new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.Recipes.Single(e => e.RecipeId == recipeId && e.OwnerId == _userId);
 
@@ -128,22 +128,38 @@ namespace SafeFoods.Services
 
         public IEnumerable<RecipeListItem> GetRecipesByIngredientId(int tagId)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
+                var recipeResult = new List<RecipeListItem>();
                 var ingredient = ctx.IngredientTags.Single(e => e.IngredientTagId == tagId);
-                var entity = ctx.Recipes
-                    .Where(e => e.ListOfIngredients.Contains(ingredient))
-                    .Select(e => new RecipeListItem
+                foreach (var recipe in ctx.Recipes)
+                    if (recipe.ListOfIngredients.Contains(ingredient))
                     {
-                        RecipeId = e.RecipeId,
-                        Name = e.Name,
-                        Description = e.Description,
-                        DateAdded = e.DateAdded
-                    });
-                return entity;
-                    
-                    
-                
+                        recipeResult.Add(new RecipeListItem
+                        {
+                            RecipeId = recipe.RecipeId,
+                            Name = recipe.Name,
+                            Description = recipe.Description,
+                            DateAdded = recipe.DateAdded
+                        });
+
+                    };
+
+
+                return recipeResult;
+                //var entity = ctx.Recipes
+                //.Where(e => e.ListOfIngredients.Contains(ingredient))
+                //.Select(e => new RecipeListItem
+                //{
+                //    RecipeId = e.RecipeId,
+                //    Name = e.Name,
+                //    Description = e.Description,
+                //    DateAdded = e.DateAdded
+                //});
+
+
+
+
             }
         }
 
@@ -153,35 +169,74 @@ namespace SafeFoods.Services
         //    {
         //        var ingredient = ctx.IngredientTags.Where(e => e.IngredientTagId == tagId)
         //            .Select(e => e.RecipesList);
-                
+
 
         //        //var entity = ctx.IngredientTags
         //    }
-           
+
         //}
 
 
 
-        public IEnumerable<RecipeListItem>FridgeSearch(RecipeFridgeSearch tagList) //get ALL recipes that have the same INGREDIENT TAGS from the list
+        public IEnumerable<RecipeListItem> FridgeSearch(RecipeFridgeSearch tagList) //get ALL recipes that have the same INGREDIENT TAGS from the list
         {
+
+
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Recipes
-                    .Where(e => e.ListOfIngredients == tagList)
-                    .Select(e => new RecipeListItem
+                var tagOne = tagList.ingredientTagOneId;
+                var tagTwo = tagList.ingredientTagTwoId;
+                var tagThree = tagList.ingredientTagThreeId;
+                var tagFour = tagList.ingredientTagFourId;
+
+                var recipeResult = new List<RecipeListItem>();
+
+                var ingredientOne = ctx.IngredientTags.Single(e => e.IngredientTagId == tagOne);
+                var ingredientTwo = ctx.IngredientTags.Single(e => e.IngredientTagId == tagTwo);
+                var ingredientThree = ctx.IngredientTags.Single(e => e.IngredientTagId == tagThree);
+                var ingredientFour = ctx.IngredientTags.Single(e => e.IngredientTagId == tagFour);
+
+                foreach (var recipe in ctx.Recipes)
+                    if (recipe.ListOfIngredients.Contains(ingredientOne) && recipe.ListOfIngredients.Contains(ingredientTwo) && recipe.ListOfIngredients.Contains(ingredientThree) && recipe.ListOfIngredients.Contains(ingredientFour))
                     {
-                        RecipeId = e.RecipeId,
-                        Name = e.Name,
-                        Description = e.Description,
-                        DateAdded = e.DateAdded
-                    });
-                return entity;
+                        recipeResult.Add(new RecipeListItem
+                        {
+                            RecipeId = recipe.RecipeId,
+                            Name = recipe.Name,
+                            Description = recipe.Description,
+                            DateAdded = recipe.DateAdded
+                        });
+
+                    };
+
+
+                return recipeResult;
+
+
+
+
+
+
+
+                //using (var ctx = new ApplicationDbContext())
+                //{
+                //    var entity = ctx.Recipes
+                //        .Where(e => e.ListOfIngredients == tagList)
+                //        .Select(e => new RecipeListItem
+                //        {
+                //            RecipeId = e.RecipeId,
+                //            Name = e.Name,
+                //            Description = e.Description,
+                //            DateAdded = e.DateAdded
+                //        });
+                //    return entity;
+                //}
+
+
+
+                // use an INGREDIENTTAG LIST as an argument, create method to do that . The view should should send an ICOLLECTION back to this method.                       
             }
-            
 
-            
-            // use an INGREDIENTTAG LIST as an argument, create method to do that . The view should should send an ICOLLECTION back to this method.                       
         }
-
     }
 }

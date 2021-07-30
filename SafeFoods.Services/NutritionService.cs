@@ -17,12 +17,12 @@ namespace SafeFoods.Services
             _userId = userId;
         }
 
-        public bool CreateNutrition(NutritionCreate model)
+        public bool CreateNutrition(int recipeId, NutritionCreate model)
         {
             var entity = new Nutrition()
             {
                 OwnerId = _userId,
-                RecipeID = model.RecipeID,
+                RecipeID = recipeId,
                 Carbohydrates = model.Carbohydrates,
                 Calories = model.Calories,
                 FatGram = model.FatGram,
@@ -85,6 +85,7 @@ namespace SafeFoods.Services
                 entity.Calories = model.Calories;
                 entity.FatGram = model.FatGram;
                 entity.Protein = model.Protein;
+                entity.Fiber = model.Fiber;
 
                 return ctx.SaveChanges() == 1;
 

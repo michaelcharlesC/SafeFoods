@@ -1,11 +1,10 @@
 ﻿@model IEnumerable<SafeFoods.Models.RecipeListItem>
 
 @{
-    ViewBag.Title = "IndexOwner";
-    ViewBag.Title = "CheckParameters";
+    ViewBag.Title = "FridgeSearchViewRESULT";
 }
 
-<h2>My Recipe Portofolio</h2>
+<h2>FridgeSearchViewRESULT</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -42,14 +41,9 @@
             @Html.DisplayFor(modelItem => item.DateAdded)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.RecipeId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.RecipeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.RecipeId }) |
-            @*@Html.ActionLink("Add Ingredients", "AddTagToRecipeIngList", "IngredientTagController", new { RecipeId = item.RecipeId })*@ 
-            @Html.ActionLink("Add Something", "AddTagToRecipeIngList", "IngredientTag", new { recipeId = item.RecipeId },null) |
-            @Html.ActionLink("Add Nutrition Details", "Create", "Nutrition", new { recipeId = item.RecipeId }, null)
-
-
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }
