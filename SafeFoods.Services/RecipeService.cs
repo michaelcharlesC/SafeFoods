@@ -57,6 +57,7 @@ namespace SafeFoods.Services
             }
         }
 
+
         public IEnumerable<RecipeListItem> GetRecipesForOwner()
         {
             using (var ctx = new ApplicationDbContext())
@@ -147,37 +148,9 @@ namespace SafeFoods.Services
 
 
                 return recipeResult;
-                //var entity = ctx.Recipes
-                //.Where(e => e.ListOfIngredients.Contains(ingredient))
-                //.Select(e => new RecipeListItem
-                //{
-                //    RecipeId = e.RecipeId,
-                //    Name = e.Name,
-                //    Description = e.Description,
-                //    DateAdded = e.DateAdded
-                //});
-
-
-
 
             }
         }
-
-        //public IEnumerable<RecipeListItem> GetRecipesByIngredientId2(int tagId)
-        //{
-        //    using(var ctx = new ApplicationDbContext())
-        //    {
-        //        var ingredient = ctx.IngredientTags.Where(e => e.IngredientTagId == tagId)
-        //            .Select(e => e.RecipesList);
-
-
-        //        //var entity = ctx.IngredientTags
-        //    }
-
-        //}
-
-
-
         public IEnumerable<RecipeListItem> FridgeSearch(RecipeFridgeSearch tagList) //get ALL recipes that have the same INGREDIENT TAGS from the list
         {
 
@@ -209,33 +182,19 @@ namespace SafeFoods.Services
 
                     };
 
-
                 return recipeResult;
 
 
 
 
-
-
-
-                //using (var ctx = new ApplicationDbContext())
-                //{
-                //    var entity = ctx.Recipes
-                //        .Where(e => e.ListOfIngredients == tagList)
-                //        .Select(e => new RecipeListItem
-                //        {
-                //            RecipeId = e.RecipeId,
-                //            Name = e.Name,
-                //            Description = e.Description,
-                //            DateAdded = e.DateAdded
-                //        });
-                //    return entity;
-                //}
-
-
-
                 // use an INGREDIENTTAG LIST as an argument, create method to do that . The view should should send an ICOLLECTION back to this method.                       
             }
+
+
+
+
+
+
 
         }
     }

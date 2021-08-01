@@ -119,11 +119,6 @@ namespace SafeFoods.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        //public ActionResult GetNutritionById(int recipeId)
-        //{
-        //    var svc = CreateNutritionService();
-        //    var model = svc.GetNutritionById(recipeId);
-        //    return View(model);
-        //}
+ 
     }
 }

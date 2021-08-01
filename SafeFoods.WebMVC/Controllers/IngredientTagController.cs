@@ -121,7 +121,7 @@ namespace SafeFoods.WebMVC.Controllers
         [ActionName("AddTagToRecipeIngList")]
         public ActionResult AddTagToRecipeIngList(int recipeId)
         {
-            //ViewBag.CheckParameters = recipeId;
+
             ViewBag.AddTagToRecipeIngList = new IngredientTagService().GetIngredientTags();
             return View();
         }
@@ -131,7 +131,7 @@ namespace SafeFoods.WebMVC.Controllers
         [ActionName("AddTagToRecipeIngList")]
         public ActionResult AddTagToRecipeIngListPost(int recipeId, IngTagModel model)
         {
-            //if (!ModelState.IsValid) return View(model);
+
 
             var service = CreateIngredientTagService();
 

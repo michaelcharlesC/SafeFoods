@@ -71,6 +71,7 @@ namespace SafeFoods.Services
                     Calories = entity.Calories,
                     FatGram = entity.FatGram,
                     Protein = entity.Protein,
+                    Fiber = entity.Fiber
                 };
             }
         }

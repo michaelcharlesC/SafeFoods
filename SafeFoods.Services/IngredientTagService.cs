@@ -63,24 +63,6 @@ namespace SafeFoods.Services
 
     
 
-        //public IEnumerable<RecipeFridgeSearch> FridgeSearchTags()
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var query =
-        //            ctx
-        //            .IngredientTags
-        //            //.Where(e => e.OwnerId == _userId)
-        //            .Select(e => new RecipeFridgeSearch
-        //            {
-        //                ingredientTagOneId = e.ingredientTagOneId,
-        //                Name = e.Name
-        //            });
-
-        //        return query.ToArray();
-        //    }
-        //}
-
         public IEnumerable<IngredientTagListItem> GetIngredientTags()
         {
             using( var ctx = new ApplicationDbContext())

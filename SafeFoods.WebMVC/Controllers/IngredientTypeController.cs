@@ -13,7 +13,7 @@ namespace SafeFoods.WebMVC.Controllers
 {
     public class IngredientTypeController : Controller
     {
-        // GET: IngredientType
+
         public ActionResult Index()
         {
             IngredientTypeService service = CreateIngredientTypeService();

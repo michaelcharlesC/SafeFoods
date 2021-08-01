@@ -38,7 +38,7 @@ namespace SafeFoods.WebMVC.Controllers
 
         public ActionResult Create()
         {
-            
+
             return View();
         }
 
@@ -62,7 +62,7 @@ namespace SafeFoods.WebMVC.Controllers
             return View(model);
 
         }
-        
+
         public ActionResult FridgeSearch()
         {
 
@@ -82,16 +82,24 @@ namespace SafeFoods.WebMVC.Controllers
 
             if (result != null)
             {
-                return FridgeSearchView(result);
+                return RedirectToAction("FridgeSearchViewRESULT",model);
             }
-
             return View(model);
+
+
+
+
         }
 
-        public ActionResult FridgeSearchView(IEnumerable<RecipeListItem> item)
+        public ActionResult FridgeSearchViewRESULT(RecipeFridgeSearch model)
         {
-            
-            return View(item);
+            //var recipeThing = new List<RecipeDetail>();
+            //foreach(var recipe in item)
+            //{
+            //    recipeThing.Add(CreateRecipeService().GetRecipeById(recipe.RecipeId));
+            //}
+            //ViewBag.Recipies = item;
+            return View(CreateRecipeService().FridgeSearch(model));
 
         }
 
