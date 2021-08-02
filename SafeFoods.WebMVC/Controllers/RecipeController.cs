@@ -179,7 +179,7 @@ namespace SafeFoods.WebMVC.Controllers
         {
             var service = CreateRecipeService();
             service.DeleteRecipe(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexOwner");
         }
 
 

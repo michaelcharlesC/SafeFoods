@@ -5,7 +5,7 @@
     ViewBag.Title = "CheckParameters";
 }
 
-<h2>My Recipe Portofolio</h2>
+<h2>My Recipe Portfolio</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -46,7 +46,7 @@
             @Html.ActionLink("Details", "Details", new { id = item.RecipeId }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.RecipeId }) |
             @*@Html.ActionLink("Add Ingredients", "AddTagToRecipeIngList", "IngredientTagController", new { RecipeId = item.RecipeId })*@ 
-            @Html.ActionLink("Add Something", "AddTagToRecipeIngList", "IngredientTag", new { recipeId = item.RecipeId },null) |
+            @Html.ActionLink("Add Ingredient Tags", "AddTagToRecipeIngList", "IngredientTag", new { recipeId = item.RecipeId },null) |
             @Html.ActionLink("Add Nutrition Details", "Create", "Nutrition", new { recipeId = item.RecipeId }, null)
 
 

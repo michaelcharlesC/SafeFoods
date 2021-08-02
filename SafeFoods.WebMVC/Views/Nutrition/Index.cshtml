@@ -53,9 +53,10 @@
             @Html.DisplayFor(modelItem => item.Fiber)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.RecipeID  }) |
-            @Html.ActionLink("Details", "Details", new {  recipeId=item.RecipeID }) |
-            @Html.ActionLink("Delete", "Delete", new {  id=item.RecipeID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.RecipeID }) |
+            @Html.ActionLink("Details", "Details", new { recipeId = item.RecipeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.RecipeID }) |
+            @Html.ActionLink("See Recipe", "Details","Recipe", new { id = item.RecipeID },null)
         </td>
     </tr>
 }
