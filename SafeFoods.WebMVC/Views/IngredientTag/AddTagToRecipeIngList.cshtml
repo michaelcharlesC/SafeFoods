@@ -1,0 +1,62 @@
+﻿@model SafeFoods.Models.IngredientTagModels.IngTagModel
+
+@{
+    ViewBag.Title = "AddTagToRecipeIngList";
+}
+
+<h2>Add Ingredient Tags To Your Recipes</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Here you can add ingredient tags to your recipe. It will enable the "Fridge Search" functionality.</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ingredientTagOneId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ingredientTagOneId", new SelectList(ViewBag.AddTagToRecipeIngList, "IngredientTagId", ("Name")));
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ingredientTagTwoId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ingredientTagTwoId", new SelectList(ViewBag.AddTagToRecipeIngList, "IngredientTagId", ("Name")));
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ingredientTagThreeId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ingredientTagThreeId", new SelectList(ViewBag.AddTagToRecipeIngList, "IngredientTagId", ("Name")));
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ingredientTagFourId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ingredientTagFourId", new SelectList(ViewBag.AddTagToRecipeIngList, "IngredientTagId", ("Name")));
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Add" class="btn btn-success" />
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

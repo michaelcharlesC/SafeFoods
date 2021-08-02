@@ -25,7 +25,7 @@ namespace SafeFoods.Data
         [Display(Name = "Modified On")]
         public DateTimeOffset? DateModified { get; set; }
         [ForeignKey(nameof(IngredientType))]
-        public int IngredientTypeId { get; set; }
+        public int? IngredientTypeId { get; set; }
         public virtual IngredientType IngredientType { get; set; }
         public virtual ICollection<Recipe> RecipesList { get; set; }
 

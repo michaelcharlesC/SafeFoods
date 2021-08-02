@@ -169,7 +169,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IngredientTagController.cs" />
+    <Compile Include="Controllers\IngredientTypeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NutritionController.cs" />
+    <Compile Include="Controllers\RecipeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -234,6 +238,32 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Recipe\Index.cshtml" />
+    <Content Include="Views\Nutrition\Index.cshtml" />
+    <Content Include="Views\IngredientTag\Index.cshtml" />
+    <Content Include="Views\Recipe\Create.cshtml" />
+    <Content Include="Views\Nutrition\Create.cshtml" />
+    <Content Include="Views\IngredientType\Create.cshtml" />
+    <Content Include="Views\IngredientTag\Create.cshtml" />
+    <Content Include="Views\IngredientType\Index.cshtml" />
+    <Content Include="Views\Recipe\Details.cshtml" />
+    <Content Include="Views\Nutrition\Details.cshtml" />
+    <Content Include="Views\IngredientTag\Details.cshtml" />
+    <Content Include="Views\IngredientType\Details.cshtml" />
+    <Content Include="Views\Recipe\Edit.cshtml" />
+    <Content Include="Views\Nutrition\Edit.cshtml" />
+    <Content Include="Views\IngredientType\Edit.cshtml" />
+    <Content Include="Views\IngredientTag\Edit.cshtml" />
+    <Content Include="Views\Recipe\Delete.cshtml" />
+    <Content Include="Views\IngredientTag\Delete.cshtml" />
+    <Content Include="Views\IngredientType\Delete.cshtml" />
+    <Content Include="Views\Nutrition\Delete.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
+    <Content Include="Views\Recipe\GetAllByTag.cshtml" />
+    <Content Include="Views\Recipe\IndexOwner.cshtml" />
+    <Content Include="Views\Recipe\FridgeSearch.cshtml" />
+    <Content Include="Views\IngredientTag\AddTagToRecipeIngList.cshtml" />
+    <Content Include="Views\Recipe\FridgeSearchViewRESULT.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

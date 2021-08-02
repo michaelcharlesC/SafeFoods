@@ -1,20 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SafeFoods.Data
+namespace SafeFoods.Models.NutritionModels
 {
-    public class Nutrition
+    public class NutritionListItem
     {
-        [Key,ForeignKey(nameof(Recipe))]
+        [Display(Name = "Recipe ID")]
         public int RecipeID { get; set; }
-        public virtual Recipe Recipe { get; set; }
-        [Required]
-        public Guid OwnerId { get; set; }
         [Display(Name = "Grams of Carbohydrates")]
         public int? Carbohydrates { get; set; }
         [Display(Name = "Grams of Calories")]

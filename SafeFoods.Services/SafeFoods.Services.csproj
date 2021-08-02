@@ -54,11 +54,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IngredientTagService.cs" />
+    <Compile Include="IngredientTypeService.cs" />
+    <Compile Include="NutritionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecipeService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SafeFoods.Data\SafeFoods.Data.csproj">
+      <Project>{08A0F68D-473A-43DC-8454-91C9091676FF}</Project>
+      <Name>SafeFoods.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SafeFoods.Models\SafeFoods.Models.csproj">
+      <Project>{6c217e71-5fbf-423f-9a9a-773db28a06b5}</Project>
+      <Name>SafeFoods.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

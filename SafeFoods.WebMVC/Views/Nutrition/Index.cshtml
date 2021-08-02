@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SafeFoods.Models.NutritionModels.NutritionListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Nutrition Index</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RecipeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Carbohydrates)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Calories)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FatGram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Protein)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fiber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecipeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carbohydrates)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Calories)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FatGram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Protein)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fiber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.RecipeID }) |
+            @Html.ActionLink("Details", "Details", new { recipeId = item.RecipeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.RecipeID }) |
+            @Html.ActionLink("See Recipe", "Details","Recipe", new { id = item.RecipeID },null)
+        </td>
+    </tr>
+}
+
+</table>

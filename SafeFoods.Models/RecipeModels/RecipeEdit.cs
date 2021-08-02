@@ -5,17 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SafeFoods.Data
+namespace SafeFoods.Models.RecipeModels
 {
-    public class Recipe 
+    public class RecipeEdit
     {
-        [Key]
+        [Required]
         public int RecipeId { get; set; }
         [Required]
-        public Guid OwnerId { get; set; }
-        [Required]
-        [MaxLength(30,ErrorMessage = " There are too many characters in this field.")]
-        [MinLength(2,ErrorMessage = "Please add at least 2 characters")]
+        [MaxLength(30, ErrorMessage = " There are too many characters in this field.")]
+        [MinLength(2, ErrorMessage = "Please add at least 2 characters")]
         public string Name { get; set; }
         [Required]
         [MaxLength(100, ErrorMessage = " There are too many characters in this field.")]
@@ -29,20 +27,9 @@ namespace SafeFoods.Data
         //public int? Rating { get; set; }
         [Display(Name = "Preparation Time in minutes")]
         [Required]
-        public TimeSpan PrepTime { get; set; } 
-        [Display(Name = "Coocking Time")]
+        public TimeSpan PrepTime { get; set; }
+        [Display(Name = "Total Coocking Time")]
         [Required]
         public int CookTime { get; set; }
-        [Required]
-        [Display(Name = "Created On")]
-        public DateTimeOffset DateAdded { get; set; }
-        [Display(Name = "Modified On")]
-        public DateTimeOffset? DateModified { get; set; }
-        public virtual ICollection<IngredientTag> ListOfIngredients { get; set; }
-
-        public Recipe() 
-        {
-            ListOfIngredients = new HashSet<IngredientTag>();
-        }
     }
 }

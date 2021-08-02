@@ -57,6 +57,11 @@
     <Compile Include="IdentityModels.cs" />
     <Compile Include="IngredientTag.cs" />
     <Compile Include="IngredientType.cs" />
+    <Compile Include="Migrations\202107280207482_aa.cs" />
+    <Compile Include="Migrations\202107280207482_aa.Designer.cs">
+      <DependentUpon>202107280207482_aa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Recipe.cs" />
     <Compile Include="Nutrition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +69,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202107280207482_aa.resx">
+      <DependentUpon>202107280207482_aa.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
